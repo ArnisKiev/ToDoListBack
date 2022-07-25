@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TaskTransformerModule } from 'src/Transformers/TaskTransformer/task.transformer.module';
-import { TaskTransformerService } from 'src/Transformers/TaskTransformer/task.transformer.service';
 import { UserController } from 'src/user/user.controller';
 import { UserModule } from 'src/user/user.module';
 import { UserService } from 'src/user/user.service';
@@ -18,7 +16,6 @@ import { TaskService } from './task.service';
       },
     ]),
     UserModule,
-    TaskTransformerModule,
   ],
   providers: [TaskService],
   controllers: [TaskController],

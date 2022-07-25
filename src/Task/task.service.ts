@@ -85,11 +85,11 @@ export class TaskService implements IRepository<TaskModel> {
   async getCountTasksOfUserByEmail(email: string) {
     const user = await this.userService.findUserByEmail(email);
 
-    if (user === undefined) {
+    if (user === null) {
       throw new BadRequestException('The user not found');
     }
 
-    const authorId: string = user['_id'];
+    const authorId: string = user['_doc']['_id'];
     return await this.taskModel.find({ authorId }).count();
   }
 
