@@ -1,5 +1,6 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post, Res } from '@nestjs/common';
 import { ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { response } from 'express';
 import { UserDto } from 'src/user/dto/userDto.dto';
 import { UserModel } from 'src/User/user-model';
 import { AuthService } from './auth.service';
@@ -17,7 +18,8 @@ export class AuthController {
   }
 
   @Post()
+  @HttpCode(201)
   async register(@Body() user: UserDto) {
-    return this.authService.createValidUser(user);
+    await this.authService.createValidUser(user);
   }
 }

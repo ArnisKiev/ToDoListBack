@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TaskController } from './task/task.controller';
 import { UserService } from './user/user.service';
-import { UserController } from './user/user.controller';
 import { TaskService } from './task/task.service';
 import { TaskModule } from './task/task.module';
 import { UserModule } from './user/user.module';
